@@ -1,0 +1,19 @@
+POST http://localhost:3000/postRegister
+Content-Type: application/json
+
+{
+    "cpf": "60991372468",
+    "nome": "Zenolia Maria",
+    "email": "enzoragazzoni21@gmail.com",
+    "senha": "123"
+}
+
+###
+
+POST http://localhost:3000/authLogin
+Content-Type: application/json
+
+{
+    "cpf": "01788208498",
+    "senha": "123"
+}

@@ -1,0 +1,74 @@
+<%- include('./partials/header') %>
+    <div class="bg-white w-full rounded-md shadow-xl p-4 flex flex-col space-y-4 items-center">
+        <h1 class="font-bold text-2xl">Entradas/Saidas</h1>
+        <input class=" w-1/2 border-2 p-2 rounded-lg border-black" type="text" placeholder="Valor" pattern="[0-9]" name="valor">
+        <button class="bg-green-500 hover:bg-green-700 rounded-lg w-1/2 py-2" name="entrada">Entrada</button>
+        <button class="bg-red-500 hover:bg-red-700 rounded-lg w-1/2 py-2" name="saida">Saida</button>
+    </div>
+    
+<div class="relative overflow-x-auto rounded-lg">
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    Data
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Valor
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Tag
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Valor
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="border-b bg-white text-black">
+                <th scope="row" class="px-6 py-4 font-medium text-black whitespace-nowrap ">
+                    Apple MacBook Pro 17"
+                </th>
+                <td class="px-6 py-4">
+                    Silver
+                </td>
+                <td class="px-6 py-4">
+                    Laptop
+                </td>
+                <td class="px-6 py-4">
+                    $2999
+                </td>
+            </tr>
+            <tr class="border-b bg-slate-200 text-black">
+                <th scope="row" class="px-6 py-4 font-medium text-black whitespace-nowrap">
+                    Microsoft Surface Pro
+                </th>
+                <td class="px-6 py-4">
+                    White
+                </td>
+                <td class="px-6 py-4">
+                    Laptop PC
+                </td>
+                <td class="px-6 py-4">
+                    $1999
+                </td>
+            </tr>
+            <tr class="border-b bg-white text-black">
+                <th scope="row" class="px-6 py-4 font-medium text-black whitespace-nowrap">
+                    Magic Mouse 2
+                </th>
+                <td class="px-6 py-4">
+                    Black
+                </td>
+                <td class="px-6 py-4">
+                    Accessories
+                </td>
+                <td class="px-6 py-4">
+                    $99
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<%- include('./partials/footer') %>
