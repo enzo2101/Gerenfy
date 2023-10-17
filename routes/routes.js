@@ -14,6 +14,7 @@ router.get('/dashboard', footerController.getDashboard);
 router.get('/fluxo', footerController.getFluxo);
 router.get('/pagamentos', footerController.getPagamentos);
 
+router.get('/getValue', fluxoController.getValue);
 
 router.get('/register', loginController.registerPageGet);
 

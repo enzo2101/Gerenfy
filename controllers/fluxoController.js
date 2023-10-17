@@ -19,6 +19,13 @@ class FluxoController {
             res.status(500).json({ success: false, message: "Erro no cadastro!" });
         }
     }
+    getValue(req, res) {
+        database.select("*").table("fluxo").then(data => {
+            res.json(data);
+        }) .catch (error => {
+            console.log(error);
+        });
+    }
 }
 
 module.exports = new FluxoController();

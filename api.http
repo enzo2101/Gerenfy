@@ -26,3 +26,6 @@ Content-Type: application/json
     "valor": "123.45",
     "tipo": "entrada"
 }
+
+###
+GET http://localhost:3000/getValue
