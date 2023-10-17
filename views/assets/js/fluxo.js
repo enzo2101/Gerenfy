@@ -17,7 +17,11 @@ form.addEventListener("submit", async function(event) {
 
         try {
             const response = await axios.post("/postValue", data);
-            console.log(response.data.message);
+
+            if (response.status === 200) {
+                window.location.reload();
+            }
+
         } catch (error) {
             console.error(error);
         }

@@ -13,7 +13,7 @@ class FluxoController {
                 tipo: tipo
             });
 
-            res.status(200).json({ success: true, message: "Cadastro realizado com sucesso!" });
+            res.status(200).json({ success: true });
         } catch (error) {
             console.error(error);
             res.status(500).json({ success: false, message: "Erro no cadastro!" });
