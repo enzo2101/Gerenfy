@@ -1,9 +1,7 @@
-const bcrypt = require('bcrypt');
-
 document.getElementById("registerForm").addEventListener("submit", async function (event) {
         event.preventDefault();
 
-        const cpf = document.getElementById("cpf").value;
+        let cpf = document.getElementById("cpf").value;
         const email = document.getElementById("email").value;
         const nome = document.getElementById("nome").value;
         const senha = document.getElementById("senha").value;
@@ -53,7 +51,7 @@ document.getElementById("registerForm").addEventListener("submit", async functio
             cpf: cpf,
             nome: nome,
             email: email,
-            senha: bcrypt.hash(senha, 10)
+            senha: senha
         };
 
         try {

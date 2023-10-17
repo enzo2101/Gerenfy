@@ -1,4 +1,5 @@
 const knex = require('knex');
+const bcrypt = require('bcrypt');
 const knexConfig = require('../knexfile'); // Importe a configuração do Knex do seu arquivo knexfile.js
 
 const database = knex(knexConfig);
@@ -15,13 +16,12 @@ class loginController {
 
         try {
             const user = await database('cadastros').where({ cpf: cpf }).first();
-
+    
             if (user) {
-                const senhaCorresp = await bcry;
-
+                const senhaCorresp = await bcrypt.compare(senha, user.senha);
+    
                 if (senhaCorresp) {
-                    console.log("Usuário encontrado");
-                    res.redirect("/dashboard");
+                    res.json({ success: true });
                 } else {
                     res.json({ message: 'Senha incorreta!' });
                 }

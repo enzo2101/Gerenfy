@@ -13,9 +13,11 @@ document.getElementById("authLogin").addEventListener("submit", async function (
         senha: senha
     }
     try {
-
         const response = await axios.post('/authLogin', data);
 
+        if (response.data.success) {
+            window.location.href = '/dashboard';
+        }
     } catch (error) {
         console.log(error);
     }

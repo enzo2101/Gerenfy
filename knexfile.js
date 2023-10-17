@@ -9,11 +9,11 @@ module.exports = {
 
     client: 'mysql2',
     connection: {
-      host: process.env.DATABASE_HOST_SENAC,
-      port: process.env.DATABASE_PORT_SENAC,
-      user: process.env.DATABASE_USER_SENAC,
-      password: process.env.DATABASE_PASSWORD_SENAC,
-      database: process.env.DATABASE_NAME_SENAC,
+      host: process.env.DATABASE_HOST,
+      port: process.env.DATABASE_PORT,
+      user: process.env.DATABASE_USER,
+      password: process.env.DATABASE_PASSWORD,
+      database: process.env.DATABASE_NAME,
 
     },
     migrations: {
