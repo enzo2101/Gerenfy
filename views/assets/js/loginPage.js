@@ -17,6 +17,8 @@ document.getElementById("authLogin").addEventListener("submit", async function (
 
         if (response.data.success) {
             window.location.href = '/dashboard';
+        } else {
+            window.location.href = '/';
         }
     } catch (error) {
         console.log(error);

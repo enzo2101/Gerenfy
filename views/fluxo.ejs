@@ -1,10 +1,15 @@
 <%- include('./partials/header') %>
+<form action="" id="formValor">
     <div class="bg-white w-full rounded-md shadow-xl p-4 flex flex-col space-y-4 items-center">
-        <h1 class="font-bold text-2xl">Entradas/Saidas</h1>
-        <input class=" w-1/2 border-2 p-2 rounded-lg border-black" type="text" placeholder="Valor" pattern="[0-9]" name="valor">
-        <button class="bg-green-500 hover:bg-green-700 rounded-lg w-1/2 py-2" name="entrada">Entrada</button>
-        <button class="bg-red-500 hover:bg-red-700 rounded-lg w-1/2 py-2" name="saida">Saida</button>
+        <h1 class="font-bold text-2xl">Entradas/Saídas</h1>
+        <input class="w-1/2 border-2 p-2 rounded-lg border-black" type="float" placeholder="Valor" id="valor">
+        <div class="flex space-x-4">
+            <input type="radio" id="entrada" name="tipo" value="entrada">Entrada
+            <input type="radio" id="saida" name="tipo" value="saida">Saída
+        </div>
+        <button class="bg-green-500 hover:bg-green-700 rounded-lg w-1/2 py-2 shadow-lg" type="submit">Enviar</button>
     </div>
+</form>
     
 <div class="relative overflow-x-auto rounded-lg">
     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -70,5 +75,7 @@
         </tbody>
     </table>
 </div>
+
+<script src="./assets/js/fluxo.js"></script>
 
 <%- include('./partials/footer') %>

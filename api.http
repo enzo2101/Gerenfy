@@ -17,3 +17,12 @@ Content-Type: application/json
     "cpf": "01788208498",
     "senha": "123"
 }
+
+###
+POST http://localhost:3000/postValue
+Content-Type: application/json
+
+{
+    "valor": "123.45",
+    "tipo": "entrada"
+}
