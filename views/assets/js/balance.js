@@ -1,47 +1,57 @@
 const tabelaContainer = document.getElementById("tabela-container");
 const tabela = document.getElementById("tabela-dados");
+const filtroDias = document.getElementById("filtroDias");
 
-axios.get("/getValue")
-    .then((response) => {
-        if (response.status === 200) {
-            const dados = response.data;
-            const tbody = tabela.getElementsByTagName("tbody")[0];
-            let saldo = 0;
+filtrarPorDias(filtroDias.value);
 
-            dados.forEach((item) => {
-                const row = document.createElement("tr");
-                
-                const dataOriginal = new Date(item.data);
-                const dia = dataOriginal.getDate();
-                const mes = dataOriginal.getMonth() + 1;
-                const ano = dataOriginal.getFullYear();
-                const dataFormatada = `${dia}/${mes}/${ano}`;
+filtroDias.addEventListener("change", function () {
+    const diasSelecionados = filtroDias.value;
+    filtrarPorDias(diasSelecionados);
+});
 
-                row.innerHTML = `
-                    <td class="border-2">${dataFormatada}</td>
-                    <td class="border-2">${item.valor}</td>
-                    <td class="border-2">${item.tipo}</td>
-                `;
-                tbody.appendChild(row);
+function filtrarPorDias(dias) {
+    axios.get(`/getValue/${dias}`)
+        .then((response) => {
+            if (response.status === 200) {
+                const dados = response.data;
+                const tbody = tabela.getElementsByTagName("tbody")[0];
+                let saldo = 0;
+                tbody.innerHTML = "";
 
-                tabelaContainer.style.display = "block";
+                dados.forEach((item) => {
+                    const row = document.createElement("tr");
 
-                if (item.tipo === "entrada") {
-                    saldo += item.valor;
-                  } else if (item.tipo === "saida") {
-                    saldo -= item.valor;
-                  }
-            });
+                    const dataOriginal = new Date(item.data);
+                    const dia = dataOriginal.getDate();
+                    const mes = dataOriginal.getMonth() + 1;
+                    const ano = dataOriginal.getFullYear();
+                    const dataFormatada = `${dia}/${mes}/${ano}`;
 
-            const saldoFormatado = saldo.toFixed(2);
-            const saldoElement = document.getElementById("saldo");
+                    row.innerHTML = `
+                        <td class="border-2">${dataFormatada}</td>
+                        <td class="border-2">${item.valor}</td>
+                        <td class="border-2">${item.tipo}</td>
+                    `;
+                    tbody.appendChild(row);
 
-            saldoElement.textContent = `R$ ${saldoFormatado}`;
+                    tabelaContainer.style.display = "block";
 
-        } else {
-            console.log("Erro na resposta da API");
-        }
-    })
-    .catch((error) => {
-        console.error(error);
-    });
+                    if (item.tipo === "entrada") {
+                        saldo += item.valor;
+                    } else if (item.tipo === "saida") {
+                        saldo -= item.valor;
+                    }
+                });
+
+                const saldoFormatado = saldo.toFixed(2);
+                const saldoElement = document.getElementById("saldo");
+
+                saldoElement.textContent = `R$ ${saldoFormatado}`;
+            } else {
+                console.log("Erro na resposta da API");
+            }
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+}

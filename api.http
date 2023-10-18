@@ -28,4 +28,4 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:3000/getValue
+GET http://localhost:3000/getValue/1

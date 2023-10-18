@@ -19,12 +19,21 @@ class FluxoController {
             res.status(500).json({ success: false, message: "Erro no cadastro!" });
         }
     }
-    getValue(req, res) {
-        database.select("*").table("fluxo").then(data => {
-            res.json(data);
-        }) .catch (error => {
-            console.log(error);
-        });
+    async getValue(req, res) {
+        const { dias } = req.params;
+
+        const dataLimite = new Date();
+        dataLimite.setDate(dataLimite.getDate() - dias);
+
+        database.select("*")
+            .table("fluxo")
+            .where('data', '>=', dataLimite)
+            .then(data => {
+                res.json(data);
+            })
+            .catch(error => {
+                console.log(error);
+            });
     }
 }
 
