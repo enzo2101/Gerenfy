@@ -8,9 +8,6 @@ class loginController {
     registerPageGet(req, res) {
         return res.render('register.ejs');
     }
-    forgotPasswordPageGet(req, res) {
-        return res.render('forgotPassword.ejs');
-    }
     async authLogin(req, res) {
         const { cpf, senha } = req.body;
 

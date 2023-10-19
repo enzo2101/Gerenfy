@@ -18,6 +18,7 @@ document.getElementById("authLogin").addEventListener("submit", async function (
         if (response.data.success) {
             window.location.href = '/dashboard';
         } else {
+            console.log(alert('usuário ou senha incorretos!'));
             window.location.href = '/';
         }
     } catch (error) {
@@ -31,17 +32,6 @@ document.addEventListener('DOMContentLoaded', function () {
     if (criarContaElement) {
         criarContaElement.addEventListener('click', function () {
             window.location.href = '/register';
-        });
-    }
-});
-
-
-document.addEventListener('DOMContentLoaded', function () {
-    const esqueciSenhaElement = document.getElementById('esqueciSenha');
-
-    if (esqueciSenhaElement) {
-        esqueciSenhaElement.addEventListener('click', function () {
-            window.location.href = '/forgotPassword';
         });
     }
 });
