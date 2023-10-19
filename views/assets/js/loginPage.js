@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (esqueciSenhaElement) {
         esqueciSenhaElement.addEventListener('click', function () {
-            window.location.href = '/esqueciSenha';
+            window.location.href = '/forgotPassword';
         });
     }
 });
