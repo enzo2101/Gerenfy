@@ -13,7 +13,6 @@ form.addEventListener("submit", async function (event) {
             valor: valorFormatado,
             tipo: tipo.value
         };
-        console.log(data);
 
         try {
             const response = await axios.post("/postValue", data);

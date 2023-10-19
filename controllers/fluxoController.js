@@ -13,6 +13,8 @@ class FluxoController {
                 tipo: tipo
             });
 
+            console.log(response);
+
             res.status(200).json({ success: true });
         } catch (error) {
             console.error(error);

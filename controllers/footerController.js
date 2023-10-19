@@ -6,7 +6,7 @@ class footerController {
         return res.render('fluxo.ejs');
     }
     getPagamentos(req, res) {
-        return res.render('pagamentos.ejs');
+        return res.render('payments.ejs');
     }
 }
 

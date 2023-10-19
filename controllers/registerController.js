@@ -15,7 +15,7 @@ class registerController {
                 email: email,
                 senha: hashedSenha
             });
-
+            
             res.status(200).json({ success: true });
 
         } catch (error) {
