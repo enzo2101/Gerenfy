@@ -33,6 +33,9 @@ class loginController {
             res.status(500).json({ message: 'Erro interno do servidor' });
         }
     }
+    leavePageGet(req, res) {
+        return res.render('login.ejs');
+    }
 }
 
 module.exports = new loginController();
